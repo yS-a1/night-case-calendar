@@ -15,8 +15,14 @@
   <link rel="manifest" href="manifest.json" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="detective-noir-theme.css" />
+  <link rel="stylesheet" href="brutal-noir-effects.css" />
 </head>
 <body data-theme="noir">
+  <div class="brutal-grid"></div>
+  <div class="noise"></div>
+  <canvas id="rain"></canvas>
+  <div class="cursor-light" id="light"></div>
+  <div class="brutal-scanline"></div>
   <div class="top-device-bar"><button id="quickAddTopBtn" class="top-action">+ Neu</button><div class="device-toggle-card" aria-label="iPhone-Modus umschalten"><span>iPhone</span><label class="switch"><input id="iphoneModeToggle" type="checkbox" /><i></i></label></div></div>
   <div class="iphone-stage" aria-hidden="true"><div class="iphone-hardware"><div class="iphone-island"></div><div class="iphone-homebar"></div></div></div>
   <div id="app-shell" class="app-shell app-v4">
@@ -39,6 +45,7 @@
   <script src="calendarCore.js"></script>
   <script src="app.js"></script>
   <script src="patch-delete-ui.js"></script>
+  <script src="brutal-noir-effects.js"></script>
   <script>if("serviceWorker" in navigator && location.protocol !== "file:"){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
 </body>
 </html>
