@@ -9,163 +9,34 @@
   <meta name="apple-mobile-web-app-title" content="Night Case" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <link rel="apple-touch-icon" href="assets/icons/icon-180.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/icon-512.png" />
+  <link rel="apple-touch-icon" href="icon-180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png" />
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="src/styles.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body data-theme="noir">
-  <div class="top-device-bar">
-    <button id="quickAddTopBtn" class="top-action">+ Neu</button>
-    <div class="device-toggle-card" aria-label="iPhone-Modus umschalten">
-      <span>iPhone</span>
-      <label class="switch">
-        <input id="iphoneModeToggle" type="checkbox" />
-        <i></i>
-      </label>
-    </div>
-  </div>
-  <div class="iphone-stage" aria-hidden="true">
-    <div class="iphone-hardware"><div class="iphone-island"></div><div class="iphone-homebar"></div></div>
-  </div>
-
+  <div class="top-device-bar"><button id="quickAddTopBtn" class="top-action">+ Neu</button><div class="device-toggle-card" aria-label="iPhone-Modus umschalten"><span>iPhone</span><label class="switch"><input id="iphoneModeToggle" type="checkbox" /><i></i></label></div></div>
+  <div class="iphone-stage" aria-hidden="true"><div class="iphone-hardware"><div class="iphone-island"></div><div class="iphone-homebar"></div></div></div>
   <div id="app-shell" class="app-shell app-v4">
-    <aside class="sidebar desktop-sidebar">
-      <div class="brand card">
-        <div class="moon-signal"><span></span></div>
-        <div>
-          <p class="eyebrow">Offline</p>
-          <h1>Night Case</h1>
-          <small>School Planner</small>
-        </div>
-      </div>
-      <nav class="mode-tabs vertical main-nav" id="moduleTabs">
-        <button data-module="dashboard" class="active"></button>
-        <button data-module="calendar"></button>
-        <button data-module="tasks"></button>
-        <button data-module="school"></button>
-        <button data-module="notes"></button>
-        <button data-module="stats"></button>
-        <button data-module="settings"></button>
-      </nav>
-      <section class="card mini-card sidebar-calendars">
-        <h2>Kalender</h2>
-        <div id="calendarList"></div>
-        <button id="addCalendarBtn" class="ghost">Kalender +</button>
-      </section>
-    </aside>
-
+    <aside class="sidebar desktop-sidebar"><div class="brand card"><div class="moon-signal"><span></span></div><div><p class="eyebrow">Offline</p><h1>Night Case</h1><small>School Planner</small></div></div><nav class="mode-tabs vertical main-nav" id="moduleTabs"><button data-module="dashboard" class="active"></button><button data-module="calendar"></button><button data-module="tasks"></button><button data-module="school"></button><button data-module="notes"></button><button data-module="stats"></button><button data-module="settings"></button></nav><section class="card mini-card sidebar-calendars"><h2>Kalender</h2><div id="calendarList"></div><button id="addCalendarBtn" class="ghost">Kalender +</button></section></aside>
     <main class="workspace app-main">
-      <header class="app-header-v5">
-        <div class="header-title">
-          <p class="eyebrow" id="sectionEyebrow">Heute</p>
-          <h2 id="dashboardDateTitle">Dashboard</h2>
-          <p id="dashboardSubtitle">Alles Wichtige auf einen Blick.</p>
-        </div>
-        <div class="header-right-cluster">
-          <div class="global-tools">
-            <input id="searchInput" placeholder="Suche…" />
-            <select id="categoryFilter"><option value="all">Alle Kategorien</option></select>
-            <button id="newEventBtn" class="primary-action">+ Termin</button>
-            <button id="newTaskBtn">+ Aufgabe</button>
-          </div>
-          <div class="top-right-logo-card" aria-label="Night Case Logo">
-            <img src="assets/branding/night-case-top-logo.png" alt="Case Logo" class="top-right-logo" />
-          </div>
-        </div>
-      </header>
-
-      <section id="dashboardModule" class="module active">
-        <div class="today-layout">
-          <section class="focus-card card">
-            <p class="eyebrow">Nächster Termin</p>
-            <div id="todayEvents"></div>
-          </section>
-          <section class="metric-card card"><h2>Aufgaben</h2><div id="todayTasks"></div></section>
-          <section class="metric-card card"><h2>Fortschritt</h2><div id="dayProgress"></div></section>
-          <section class="card week-card"><h2>Diese Woche</h2><div id="weekPreview"></div></section>
-          <section class="card school-card"><h2>Schule</h2><div id="schoolPreview"></div></section>
-          <section class="card mini-calendar-card"><h2>Mini-Kalender</h2><div id="miniCalendar"></div></section>
-          <section class="card quick-panel"><h2>Schnellstart</h2><button id="dashNewEventBtn" class="primary-action">Neuer Termin</button><button id="dashNewTaskBtn">Neue Aufgabe</button><button id="dashCalendarBtn">Kalender öffnen</button></section>
-          <div id="nextReminder" class="visually-hidden"></div>
-        </div>
-      </section>
-
-      <section id="calendarModule" class="module">
-        <div class="toolbar card">
-          <button id="prevBtn">◀</button>
-          <h2 id="currentTitle">Monat</h2>
-          <button id="nextBtn">▶</button>
-          <div class="view-tabs" id="viewTabs">
-            <button data-view="day">Tag</button><button data-view="week">Woche</button><button data-view="month" class="active">Monat</button><button data-view="year">Jahr</button><button data-view="agenda">Liste</button>
-          </div>
-        </div>
-        <div id="calendarView" class="calendar-view"></div>
-      </section>
-
-      <section id="tasksModule" class="module">
-        <div class="section-card card"><div class="section-head"><div><p class="eyebrow">To-dos</p><h2>Aufgaben</h2></div><button id="openTaskDialogBtn" class="primary-action">+ Neue Aufgabe</button></div><div class="task-controls segmented"><select id="taskFilter"><option value="all">Alle</option><option value="open">Offen</option><option value="done">Erledigt</option><option value="deadline">Mit Deadline</option></select><select id="taskSort"><option value="date">Datum</option><option value="priority">Priorität</option></select></div><div id="taskList" class="task-list"></div></div>
-      </section>
-
-      <section id="schoolModule" class="module">
-        <div class="school-layout"><section class="card school-hero"><p class="eyebrow">Schulzentrum</p><h2>Heute & diese Woche</h2><div id="schoolSummary"></div><button id="seedSchoolBtn">Demo-Woche</button></section><section class="card timetable-card"><h2>Stundenplan</h2><div id="schoolTimetable"></div></section><section class="card"><h2>Fächer</h2><div id="subjectList"></div></section><section class="card"><h2>Prüfungen</h2><div id="examCountdown"></div></section></div>
-      </section>
-
-      <section id="notesModule" class="module">
-        <div class="section-card card"><div class="section-head"><div><p class="eyebrow">Wissen & Listen</p><h2>Notizen</h2></div><button id="openNoteDialogBtn" class="primary-action">+ Neue Notiz</button></div><input id="noteSearch" placeholder="Notizen durchsuchen…"><div id="notesList" class="notes-list"></div></div>
-      </section>
-
-      <section id="statsModule" class="module">
-        <div class="grid-2"><div class="card"><h2>Statistiken</h2><div id="statsPanel" class="stats-grid"></div><div id="reportBars" class="report-bars"></div></div><div class="card"><h2>Heatmap</h2><div id="heatmap" class="heatmap"></div></div><div class="card"><h2>Gewohnheiten</h2><div id="habitList"></div></div><div class="card"><h2>Eisenhower</h2><div class="task-entry"><input id="matrixTask" placeholder="Aufgabe…"><select id="matrixQuadrant"><option value="do">Dringend + wichtig</option><option value="plan">Wichtig</option><option value="delegate">Dringend</option><option value="drop">Weglassen</option></select><button id="addMatrixBtn">Einordnen</button></div><div id="matrixBoard" class="matrix-board"></div></div></div>
-      </section>
-
-      <section id="settingsModule" class="module">
-        <div class="settings-grid"><div class="card"><h2>Design</h2><label>Theme<select id="themeSelect"><option value="noir">Noir</option><option value="light">Light</option><option value="crimson">Crimson</option><option value="cyan">Cyan</option><option value="matte-red">Matte Red</option></select></label><label>Startansicht<select id="startViewSelect"><option value="dashboard">Dashboard</option><option value="calendar">Kalender</option><option value="tasks">Aufgaben</option></select></label><label>Kalenderansicht<select id="defaultCalendarView"><option value="day">Tag</option><option value="week">Woche</option><option value="month">Monat</option><option value="agenda">Liste</option></select></label></div><div class="card"><h2>Erinnerungen</h2><label>Standard<select id="defaultReminderSelect"><option value="5">5 Minuten</option><option value="10">10 Minuten</option><option value="15">15 Minuten</option><option value="30">30 Minuten</option><option value="60">1 Stunde</option><option value="1440">1 Tag</option></select></label><button id="notifyBtn">Benachrichtigungen aktivieren</button></div><div class="card"><h2>Daten</h2><button id="exportJsonBtn">JSON Export</button><button id="exportIcsBtn">ICS Export</button><button id="exportPdfBtn">PDF/Druck</button><button id="protectedExportBtn">Verschlüsselter Export</button><label class="file-btn">Import<input id="importFile" type="file" accept=".json,.ics,.ical,.ncsec,text/calendar,application/json" hidden /></label></div><div class="card pwa-card"><h2>iPhone-App</h2><p id="pwaStatus">Safari öffnen → Teilen → Zum Home-Bildschirm.</p><button id="pwaHelpBtn" type="button">Installationshilfe</button></div><div class="card"><h2>Datenschutz</h2><p>Private Einträge werden lokal verdeckt.</p><input id="pinInput" type="password" placeholder="PIN"><button id="togglePrivacyBtn">Privatmodus</button><button id="backupBtn">Backup</button><button id="clearTrashBtn">Papierkorb leeren</button><div id="privacyState"></div></div></div>
-      </section>
+      <header class="app-header-v5"><div class="header-title"><p class="eyebrow" id="sectionEyebrow">Heute</p><h2 id="dashboardDateTitle">Dashboard</h2><p id="dashboardSubtitle">Alles Wichtige auf einen Blick.</p></div><div class="header-right-cluster"><div class="global-tools"><input id="searchInput" placeholder="Suche…" /><select id="categoryFilter"><option value="all">Alle Kategorien</option></select><button id="newEventBtn" class="primary-action">+ Termin</button><button id="newTaskBtn">+ Aufgabe</button></div><div class="top-right-logo-card" aria-label="Night Case Logo"><img src="night-case-top-logo.png" alt="Case Logo" class="top-right-logo" /></div></div></header>
+      <section id="dashboardModule" class="module active"><div class="today-layout"><section class="focus-card card"><p class="eyebrow">Nächster Termin</p><div id="todayEvents"></div></section><section class="metric-card card"><h2>Aufgaben</h2><div id="todayTasks"></div></section><section class="metric-card card"><h2>Fortschritt</h2><div id="dayProgress"></div></section><section class="card week-card"><h2>Diese Woche</h2><div id="weekPreview"></div></section><section class="card school-card"><h2>Schule</h2><div id="schoolPreview"></div></section><section class="card mini-calendar-card"><h2>Mini-Kalender</h2><div id="miniCalendar"></div></section><section class="card quick-panel"><h2>Schnellstart</h2><button id="dashNewEventBtn" class="primary-action">Neuer Termin</button><button id="dashNewTaskBtn">Neue Aufgabe</button><button id="dashCalendarBtn">Kalender öffnen</button></section><div id="nextReminder" class="visually-hidden"></div></div></section>
+      <section id="calendarModule" class="module"><div class="toolbar card"><button id="prevBtn">◀</button><h2 id="currentTitle">Monat</h2><button id="nextBtn">▶</button><div class="view-tabs" id="viewTabs"><button data-view="day">Tag</button><button data-view="week">Woche</button><button data-view="month" class="active">Monat</button><button data-view="year">Jahr</button><button data-view="agenda">Liste</button></div></div><div id="calendarView" class="calendar-view"></div></section>
+      <section id="tasksModule" class="module"><div class="section-card card"><div class="section-head"><div><p class="eyebrow">To-dos</p><h2>Aufgaben</h2></div><button id="openTaskDialogBtn" class="primary-action">+ Neue Aufgabe</button></div><div class="task-controls segmented"><select id="taskFilter"><option value="all">Alle</option><option value="open">Offen</option><option value="done">Erledigt</option><option value="deadline">Mit Deadline</option></select><select id="taskSort"><option value="date">Datum</option><option value="priority">Priorität</option></select></div><div id="taskList" class="task-list"></div></div></section>
+      <section id="schoolModule" class="module"><div class="school-layout"><section class="card school-hero"><p class="eyebrow">Schulzentrum</p><h2>Heute & diese Woche</h2><div id="schoolSummary"></div><button id="seedSchoolBtn">Demo-Woche</button></section><section class="card timetable-card"><h2>Stundenplan</h2><div id="schoolTimetable"></div></section><section class="card"><h2>Fächer</h2><div id="subjectList"></div></section><section class="card"><h2>Prüfungen</h2><div id="examCountdown"></div></section></div></section>
+      <section id="notesModule" class="module"><div class="section-card card"><div class="section-head"><div><p class="eyebrow">Wissen & Listen</p><h2>Notizen</h2></div><button id="openNoteDialogBtn" class="primary-action">+ Neue Notiz</button></div><input id="noteSearch" placeholder="Notizen durchsuchen…"><div id="notesList" class="notes-list"></div></div></section>
+      <section id="statsModule" class="module"><div class="grid-2"><div class="card"><h2>Statistiken</h2><div id="statsPanel" class="stats-grid"></div><div id="reportBars" class="report-bars"></div></div><div class="card"><h2>Heatmap</h2><div id="heatmap" class="heatmap"></div></div><div class="card"><h2>Gewohnheiten</h2><div id="habitList"></div></div><div class="card"><h2>Eisenhower</h2><div class="task-entry"><input id="matrixTask" placeholder="Aufgabe…"><select id="matrixQuadrant"><option value="do">Dringend + wichtig</option><option value="plan">Wichtig</option><option value="delegate">Dringend</option><option value="drop">Weglassen</option></select><button id="addMatrixBtn">Einordnen</button></div><div id="matrixBoard" class="matrix-board"></div></div></div></section>
+      <section id="settingsModule" class="module"><div class="settings-grid"><div class="card"><h2>Design</h2><label>Theme<select id="themeSelect"><option value="noir">Noir</option><option value="light">Light</option><option value="crimson">Crimson</option><option value="cyan">Cyan</option><option value="matte-red">Matte Red</option></select></label><label>Startansicht<select id="startViewSelect"><option value="dashboard">Dashboard</option><option value="calendar">Kalender</option><option value="tasks">Aufgaben</option></select></label><label>Kalenderansicht<select id="defaultCalendarView"><option value="day">Tag</option><option value="week">Woche</option><option value="month">Monat</option><option value="agenda">Liste</option></select></label></div><div class="card"><h2>Erinnerungen</h2><label>Standard<select id="defaultReminderSelect"><option value="5">5 Minuten</option><option value="10">10 Minuten</option><option value="15">15 Minuten</option><option value="30">30 Minuten</option><option value="60">1 Stunde</option><option value="1440">1 Tag</option></select></label><button id="notifyBtn">Benachrichtigungen aktivieren</button></div><div class="card"><h2>Daten</h2><button id="exportJsonBtn">JSON Export</button><button id="exportIcsBtn">ICS Export</button><button id="exportPdfBtn">PDF/Druck</button><button id="protectedExportBtn">Verschlüsselter Export</button><label class="file-btn">Import<input id="importFile" type="file" accept=".json,.ics,.ical,.ncsec,text/calendar,application/json" hidden /></label></div><div class="card pwa-card"><h2>iPhone-App</h2><p id="pwaStatus">Safari öffnen → Teilen → Zum Home-Bildschirm.</p><button id="pwaHelpBtn" type="button">Installationshilfe</button></div><div class="card"><h2>Datenschutz</h2><p>Private Einträge werden lokal verdeckt.</p><input id="pinInput" type="password" placeholder="PIN"><button id="togglePrivacyBtn">Privatmodus</button><button id="backupBtn">Backup</button><button id="clearTrashBtn">Papierkorb leeren</button><div id="privacyState"></div></div></div></section>
     </main>
-
     <nav class="bottom-nav" id="bottomNav" aria-label="Hauptnavigation"></nav>
   </div>
-
-  <dialog id="taskDialog">
-    <form method="dialog" class="dialog-card compact-form" id="taskForm">
-      <h2>Neue Aufgabe</h2>
-      <label>Titel<input id="taskTitle" placeholder="Aufgabe, Hausaufgabe, Deadline…" required></label>
-      <div class="grid-2"><label>Deadline<input id="taskDeadline" type="date"></label><label>Priorität<select id="taskPriority"><option value="low">Niedrig</option><option value="medium" selected>Mittel</option><option value="high">Hoch</option></select></label></div>
-      <menu><button type="button" id="cancelTaskDialogBtn">Abbrechen</button><button id="saveTaskBtn" class="primary-action">Speichern</button></menu>
-    </form>
-  </dialog>
-
-  <dialog id="noteDialog">
-    <form method="dialog" class="dialog-card compact-form" id="noteForm">
-      <h2>Neue Notiz</h2>
-      <label>Titel<input id="noteTitle" placeholder="Titel"></label>
-      <label>Kategorie<select id="noteCategory"><option value="general">Allgemein</option><option value="day">Tagesnotiz</option><option value="week">Wochennotiz</option><option value="school">Schule</option><option value="private">Privat</option></select></label>
-      <label>Inhalt<textarea id="quickNote" placeholder="Lernnotiz, Packliste, Projektidee…"></textarea></label>
-      <menu><button type="button" id="cancelNoteDialogBtn">Abbrechen</button><button id="saveNoteBtn" class="primary-action">Speichern</button></menu>
-    </form>
-  </dialog>
-
-  <dialog id="eventDialog">
-    <form method="dialog" id="eventForm" class="dialog-card detail-form">
-      <h2 id="dialogTitle">Termin</h2>
-      <input type="hidden" id="eventId" />
-      <label>Titel<input id="eventTitle" required maxlength="120" /></label>
-      <label>Beschreibung<textarea id="eventDescription"></textarea></label>
-      <div class="grid-2"><label>Start<input id="eventStart" type="datetime-local" required /></label><label>Ende<input id="eventEnd" type="datetime-local" required /></label></div>
-      <div class="grid-3"><label><input id="eventAllDay" type="checkbox" /> Ganztägig</label><label>Ort<input id="eventLocation" /></label><label>Symbol<select id="eventIcon"></select></label></div>
-      <div class="grid-3"><label>Kalender<select id="eventCalendar"></select></label><label>Kategorie<select id="eventCategory"></select></label><label>Farbe<input id="eventColor" type="color" value="#ffd84d" /></label></div>
-      <div class="grid-3"><label>Status<select id="eventStatus"><option value="planned">Geplant</option><option value="done">Erledigt</option><option value="cancelled">Abgesagt</option></select></label><label>Wiederholung<select id="eventRepeat"><option value="none">Keine</option><option value="daily">Täglich</option><option value="weekly">Wöchentlich</option><option value="monthly">Monatlich</option><option value="yearly">Jährlich</option></select></label><label>Bis<input id="eventUntil" type="date" /></label></div>
-      <div class="grid-2"><label>Alle X<input id="eventInterval" type="number" min="1" value="1" /></label><label>Erinnerungen<select id="eventReminders" multiple><option value="5">5 Minuten</option><option value="10">10 Minuten</option><option value="15">15 Minuten</option><option value="30">30 Minuten</option><option value="60">1 Stunde</option><option value="1440">1 Tag</option></select></label></div>
-      <label>Termin-Notizen<textarea id="eventNotes" placeholder="Notizen, Checkliste, Anhänge als lokale Textliste…"></textarea></label>
-      <label><input id="eventPrivate" type="checkbox" /> privat/versteckt</label>
-      <menu><button value="cancel" type="button" id="cancelDialogBtn">Abbrechen</button><button value="delete" type="button" id="deleteEventBtn" class="danger">Löschen</button><button value="default" id="saveEventBtn">Speichern</button></menu>
-    </form>
-  </dialog>
-
-  <script src="src/calendarCore.js"></script>
-  <script src="src/app.js"></script>
+  <dialog id="taskDialog"><form method="dialog" class="dialog-card compact-form" id="taskForm"><h2>Neue Aufgabe</h2><label>Titel<input id="taskTitle" placeholder="Aufgabe, Hausaufgabe, Deadline…" required></label><div class="grid-2"><label>Deadline<input id="taskDeadline" type="date"></label><label>Priorität<select id="taskPriority"><option value="low">Niedrig</option><option value="medium" selected>Mittel</option><option value="high">Hoch</option></select></label></div><menu><button type="button" id="cancelTaskDialogBtn">Abbrechen</button><button id="saveTaskBtn" class="primary-action">Speichern</button></menu></form></dialog>
+  <dialog id="noteDialog"><form method="dialog" class="dialog-card compact-form" id="noteForm"><h2>Neue Notiz</h2><label>Titel<input id="noteTitle" placeholder="Titel"></label><label>Kategorie<select id="noteCategory"><option value="general">Allgemein</option><option value="day">Tagesnotiz</option><option value="week">Wochennotiz</option><option value="school">Schule</option><option value="private">Privat</option></select></label><label>Inhalt<textarea id="quickNote" placeholder="Lernnotiz, Packliste, Projektidee…"></textarea></label><menu><button type="button" id="cancelNoteDialogBtn">Abbrechen</button><button id="saveNoteBtn" class="primary-action">Speichern</button></menu></form></dialog>
+  <dialog id="eventDialog"><form method="dialog" id="eventForm" class="dialog-card detail-form"><h2 id="dialogTitle">Termin</h2><input type="hidden" id="eventId" /><label>Titel<input id="eventTitle" required maxlength="120" /></label><label>Beschreibung<textarea id="eventDescription"></textarea></label><div class="grid-2"><label>Start<input id="eventStart" type="datetime-local" required /></label><label>Ende<input id="eventEnd" type="datetime-local" required /></label></div><div class="grid-3"><label><input id="eventAllDay" type="checkbox" /> Ganztägig</label><label>Ort<input id="eventLocation" /></label><label>Symbol<select id="eventIcon"></select></label></div><div class="grid-3"><label>Kalender<select id="eventCalendar"></select></label><label>Kategorie<select id="eventCategory"></select></label><label>Farbe<input id="eventColor" type="color" value="#ffd84d" /></label></div><div class="grid-3"><label>Status<select id="eventStatus"><option value="planned">Geplant</option><option value="done">Erledigt</option><option value="cancelled">Abgesagt</option></select></label><label>Wiederholung<select id="eventRepeat"><option value="none">Keine</option><option value="daily">Täglich</option><option value="weekly">Wöchentlich</option><option value="monthly">Monatlich</option><option value="yearly">Jährlich</option></select></label><label>Bis<input id="eventUntil" type="date" /></label></div><div class="grid-2"><label>Alle X<input id="eventInterval" type="number" min="1" value="1" /></label><label>Erinnerungen<select id="eventReminders" multiple><option value="5">5 Minuten</option><option value="10">10 Minuten</option><option value="15">15 Minuten</option><option value="30">30 Minuten</option><option value="60">1 Stunde</option><option value="1440">1 Tag</option></select></label></div><label>Termin-Notizen<textarea id="eventNotes" placeholder="Notizen, Checkliste, Anhänge als lokale Textliste…"></textarea></label><label><input id="eventPrivate" type="checkbox" /> privat/versteckt</label><menu><button value="cancel" type="button" id="cancelDialogBtn">Abbrechen</button><button value="delete" type="button" id="deleteEventBtn" class="danger">Löschen</button><button value="default" id="saveEventBtn">Speichern</button></menu></form></dialog>
+  <script src="calendarCore.js"></script>
+  <script src="app.js"></script>
   <script>if("serviceWorker" in navigator && location.protocol !== "file:"){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
 </body>
 </html>
