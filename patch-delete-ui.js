@@ -23,22 +23,8 @@
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }
 
-  function findCard(el) {
-    return el.closest('.task-card,.note,.matrix-cell button,.calendar-toggle');
-  }
-
-  function ensureButton(container, id, label, className = 'danger tiny-delete') {
-    if (!container || container.querySelector(`[data-delete-kind="${id}"]`)) return;
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = className;
-    btn.textContent = label;
-    btn.dataset.deleteKind = id;
-    container.appendChild(btn);
-  }
-
   function enhanceTasks() {
-    document.querySelectorAll('#taskList .task-card').forEach((card, index) => {
+    document.querySelectorAll('#taskList .task-card').forEach(card => {
       if (card.querySelector('[data-delete-kind="task"]')) return;
       const input = card.querySelector('[data-task]');
       const id = input?.dataset.task || card.querySelector('[data-archive]')?.dataset.archive;
@@ -70,7 +56,7 @@
   }
 
   function enhanceHabits() {
-    document.querySelectorAll('#habitList .task-card').forEach((card, index) => {
+    document.querySelectorAll('#habitList .task-card').forEach(card => {
       if (card.querySelector('[data-delete-kind="habit"]')) return;
       const habitButton = card.querySelector('[data-habit]');
       const id = habitButton?.dataset.habit;
@@ -86,12 +72,9 @@
   }
 
   function enhanceMatrix() {
-    document.querySelectorAll('#matrixBoard .matrix-cell button').forEach((item, index) => {
-      if (item.dataset.deleteKind) return;
+    document.querySelectorAll('#matrixBoard .matrix-cell button').forEach(item => {
       if (item.querySelector('.matrix-delete-x')) return;
-      const state = readState();
       const text = item.textContent.trim();
-      const found = (state.matrix || []).find(x => x.title === text || x.text === text || x.name === text);
       item.dataset.matrixTitle = text;
       const x = document.createElement('span');
       x.className = 'matrix-delete-x';
@@ -116,6 +99,17 @@
     });
   }
 
+  function scrollToRelevantCalendarPart() {
+    const calendar = $('calendarModule');
+    if (!calendar || !calendar.classList.contains('active')) return;
+    const todayCell = document.querySelector('.day-cell.today');
+    const selectedCell = document.querySelector('.day-cell.selected');
+    const firstEvent = document.querySelector('#calendarView .event-pill, #calendarView .list-row, #calendarView .agenda-item');
+    const target = todayCell || selectedCell || firstEvent || $('calendarView');
+    if (!target) return;
+    setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' }), 220);
+  }
+
   function enhanceAll() {
     removePhoneToggle();
     enhanceTasks();
@@ -124,6 +118,11 @@
     enhanceMatrix();
     enhanceCalendars();
   }
+
+  document.addEventListener('click', event => {
+    const moduleBtn = event.target.closest('[data-module="calendar"], #dashCalendarBtn');
+    if (moduleBtn) setTimeout(scrollToRelevantCalendarPart, 500);
+  }, true);
 
   document.addEventListener('click', event => {
     const del = event.target.closest('[data-delete-kind]');
@@ -177,7 +176,7 @@
 
   const observer = new MutationObserver(() => enhanceAll());
   observer.observe(document.documentElement, { childList: true, subtree: true });
-  window.addEventListener('load', enhanceAll);
+  window.addEventListener('load', () => { enhanceAll(); setTimeout(scrollToRelevantCalendarPart, 800); });
   setTimeout(enhanceAll, 250);
   setTimeout(enhanceAll, 1000);
 })();
