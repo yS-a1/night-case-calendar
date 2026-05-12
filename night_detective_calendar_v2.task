@@ -1,0 +1,29 @@
+# Night Case Calendar 3.0 Task List
+
+## Version 3.0
+- [x] Drag & Drop für Termine
+- [x] Light Mode und mehrere Themes
+- [x] Snooze für Erinnerungen
+- [x] Browser-Benachrichtigungen
+- [x] verschlüsselter Export mit Passwort
+- [x] erweiterte Reports / Diagramme
+- [x] XP / Level / Challenges
+- [x] Stimmungstracker
+- [x] Tagebuch-Ausbau
+- [x] Eisenhower-Matrix
+- [x] Manifest + Service Worker
+- [x] Tests ausgeführt
+
+## Noch nicht vollständig browser-realistisch
+- [ ] Face ID / Touch ID nur mit WebAuthn/native App
+- [ ] Sperrbildschirm-Widget / Desktop-Widget nur mit nativer App/PWA-Plattform-Support
+- [ ] komplette lokale Datenbank-Verschlüsselung statt nur Export-Verschlüsselung
+
+
+## iPhone-Modus 3.1
+- [x] Switch oben rechts
+- [x] iPhone-Rahmen mit Notch/Dynamic-Island-Stil
+- [x] mobile Handyansicht
+- [x] kompakter Kalender im iPhone-Modus
+- [x] lokales Speichern der Einstellung
+- [x] Tests erfolgreich

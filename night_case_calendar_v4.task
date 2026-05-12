@@ -1,0 +1,27 @@
+# Night Case Calendar 4.0 Task List
+
+## Neue Struktur
+- [x] Hauptnavigation: Heute, Kalender, Aufgaben, Stundenplan, Notizen, Statistiken, Einstellungen
+- [x] Bottom Navigation eingebaut
+- [x] Dashboard / Startseite gebaut
+- [x] Kalenderbereich neu einsortiert
+- [x] Termin-Detailseite erweitert
+- [x] Aufgabenbereich mit Filter/Sortierung verbessert
+- [x] Schulbereich mit Stundenplan, Übersicht und Prüfungscountdown verbessert
+- [x] Notizenbereich mit Titel, Kategorie und Suche verbessert
+- [x] Statistikbereich mit Reports, Heatmap, Level und Eisenhower-Matrix strukturiert
+- [x] Einstellungen für Design, Startansicht, Kalenderansicht, Erinnerung, Daten und Datenschutz gebaut
+- [x] iPhone-Modus überarbeitet
+- [x] Tests ausgeführt
+- [x] ZIP erstellt
+
+## QA
+- [x] JavaScript Syntax-Check
+- [x] Calendar-Core Tests
+- [x] ZIP-Paket erstellt
+
+## Nächste mögliche Ausbaustufe
+- [ ] Aufgaben-Detailseite
+- [ ] Fächer-Detailseite mit Lehrer/Raum/Material
+- [ ] Drag & Drop im iPhone-Modus per Touch-Gesten
+- [ ] echte PWA-Benachrichtigungen mit Service Worker

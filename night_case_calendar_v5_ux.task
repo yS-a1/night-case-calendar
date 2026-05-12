@@ -1,0 +1,29 @@
+# Night Case Calendar 5.0 – UX-Redesign Taskliste
+
+## Fertig
+- [x] Visuelle Hierarchie ruhiger und klarer gemacht
+- [x] Dashboard/Heute mit Fokus-Karte neu strukturiert
+- [x] Header kompakter umgesetzt
+- [x] Desktop: Sidebar, Mobile: Bottom-Navigation
+- [x] Mobile Bottom-Bar auf 5 Hauptpunkte reduziert
+- [x] Mehr-Menü für Notizen, Statistiken, Einstellungen ergänzt
+- [x] Kalender-Monatsansicht mit ausgewähltem Tag ergänzt
+- [x] Aufgabenformular in Dialog/Bottom-Sheet-ähnliches Modal verschoben
+- [x] Notizeditor in Dialog/Bottom-Sheet-ähnliches Modal verschoben
+- [x] Schulbereich als Schulzentrum geordnet
+- [x] Statistikbereich ruhiger und klarer aufgebaut
+- [x] Night-Case-Stil modernisiert: weniger Glanz, weniger Rahmen, klare Karten
+- [x] iPhone/PWA-Layout angepasst
+- [x] JavaScript Syntax-Check bestanden
+- [x] Core-Tests bestanden
+
+## Noch sinnvoll als nächste Version
+- [ ] echte Wischgesten im Kalender
+- [ ] echtes Aufgaben-Detailfenster
+- [ ] OCR/Scan-Bereich für Termine aus Bildern
+- [ ] weitere PWA-Update-Hinweise in der App
+
+
+## Update 5.3
+- Custom Logo oben rechts eingebaut
+- Neues Theme: Matte Red (matt schwarz/grau mit roten Akzenten)

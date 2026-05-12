@@ -1,0 +1,48 @@
+{
+  "name": "Night Case Calendar",
+  "short_name": "Night Case",
+  "description": "Offline-Kalender, Aufgaben und Schulplaner im Dark-Detective-Stil.",
+  "id": "/night-case-calendar/",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "portrait",
+  "background_color": "#07070c",
+  "theme_color": "#0a0a0c",
+  "categories": [
+    "productivity",
+    "education",
+    "utilities"
+  ],
+  "lang": "de-DE",
+  "icons": [
+    {
+      "src": "assets/icons/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

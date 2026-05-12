@@ -1,0 +1,11 @@
+# Night Case Calendar 5.1 – Mobile Navigation Bugfix
+
+## Behoben
+- [x] Bottom-Bar im Mobile/iPhone-Modus wieder sichtbar
+- [x] Wechsel zwischen Heute, Kalender, Aufgaben, Schule und Mehr repariert
+- [x] Mehr-Menü für Notizen, Statistiken und Einstellungen stabilisiert
+- [x] Desktop zeigt weiter nur Sidebar
+- [x] Mobile/iPhone zeigt Bottom-Bar
+- [x] iPhone Safe-Area und z-index korrigiert
+- [x] Cache-Version für PWA-Update angepasst
+- [x] Tests ausgeführt

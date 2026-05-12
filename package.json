@@ -1,0 +1,19 @@
+{
+  "name": "night-case-calendar-pwa",
+  "version": "5.4.0",
+  "description": "Night Case Calendar PWA ohne XP-System",
+  "main": "src/calendarCore.js",
+  "scripts": {
+    "test": "node tests/test_calendarCore.js"
+  },
+  "keywords": [
+    "calendar",
+    "offline",
+    "tasks",
+    "school",
+    "detective",
+    "localStorage"
+  ],
+  "license": "MIT",
+  "devDependencies": {}
+}

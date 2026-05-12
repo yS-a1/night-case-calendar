@@ -1,0 +1,22 @@
+# Night Case Calendar PWA Task List
+
+## PWA
+- [x] PWA-Manifest erstellt
+- [x] Service Worker erstellt
+- [x] Offline-Cache erstellt
+- [x] Offline-Fallback erstellt
+- [x] App-Icons erstellt
+- [x] Apple Touch Icon eingebunden
+- [x] iPhone-Safe-Area verbessert
+- [x] Standalone Home-Screen-Modus vorbereitet
+- [x] Installationsanleitung ergänzt
+
+## App
+- [x] Dashboard-Struktur beibehalten
+- [x] Kalender / Aufgaben / Schule / Notizen / Statistik / Einstellungen beibehalten
+- [x] iPhone-Modus beibehalten und PWA-fähig ergänzt
+
+## QA
+- [x] JavaScript Syntax-Check
+- [x] Core-Tests
+- [x] ZIP erstellt
